@@ -1,21 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bootcamp Quiz</title>
-</head>
-<body>
-    <main>
-        <section class="quizWrapper">
-            <div class="quizBody">
-                <div class="question"></div>
-                <div class="answers"></div>
-                <button id="submit"></button>
-            </div>
-        </section>
-    </main>
-    
-</body>
+<html lang="EN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Web Development Quiz</title>
+    </head>
+    <body>
+        <main>
+            <h1>Web Development Quiz</h1>
+            <section class="quizWrapper">
+                <form>
+                    <p>Question 1: What are the units of measurement used to size fonts?</p>
+                    <div>
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionOneChoiceA"
+                            name="questionOne" value="a">
+                            <label for="questionOneChoiceA">pixels, percentage, em, rem, and vh</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionOneChoiceB"
+                            name="questionOne" value="b">
+                            <label for="questionOneChoiceB">pixels, percentage, and rem</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionOneChoiceC"
+                            name="questionOne" value="c">
+                            <label for="questionOneChoiceC">pixels and percentage</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionOneChoiceD"
+                            name="questionOne" value="d">
+                            <label for="questionOneChoiceD">pixels, percentage, em, and rem</label>
+                        </div>
+                    </div>
+
+                    <p>Question 2: What position value do all HTML elements have by default?</p>
+                    <div>
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionTwoChoiceA"
+                            name="questionTwo" value="">
+                            <label for="questionTwoChoiceA">absolute</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionTwoChoiceB"
+                            name="questionTwo" value="">
+                            <label for="questionTwoChoiceB">fixed</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionTwoChoiceC"
+                            name="questionTwo" value="">
+                            <label for="questionTwoChoiceC">static</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionTwoChoiceD"
+                            name="questionTwo" value="">
+                            <label for="questionTwoChoiceD">relative</label>
+                        </div>
+                    </div>
+                    
+                    <p>Question 3:
+                        Given the code below, what would print to your console if you typed <code>console.log(animalSound);</code>?
+                        <pre>
+                            const animal = {
+                                size: 'small',
+                                colour: 'black',
+                                type: 'cat',
+                                sound: 'meow'
+                                makeSound: () => {
+                                    return `cat says ${this.sound}`;
+                                }
+                            };
+
+                            const animalSound = animal.makeSound();
+                        </pre>
+                    </p>
+                    <div>
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionThreeChoiceA"
+                            name="questionThree" value="">
+                            <label for="">"cat says meow"</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionThreeChoiceB"
+                            name="questionThree" value="">
+                            <label for="">an error</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionThreeChoiceC"
+                            name="questionThree" value="">
+                            <label for="">undefined</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionThreeChoiceD"
+                            name="questionThree" value="">
+                            <label for="">"cat says undefined"</label>
+                        </div>
+                    </div>
+                    
+                    <p>Question 4: What primitive data types are immutable?</p>
+                    <div>
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionFourChoiceA"
+                            name="questionFour" value="">
+                            <label for="uestionFourChoiceA">String, Number, Undefined, BigInt, Boolean, Null, and Symbol</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionFourChoiceB"
+                            name="questionFour" value="">
+                            <label for="questionFourChoiceB">String, Number, Undefined, BigInt, Boolean, Object, Null, and Symbol</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionFourChoiceC"
+                            name="questionFour" value="">
+                            <label for="questionFourChoiceC">Number, Undefined, Boolean, BigInt, and Null</label>
+                        </div>
+
+                        <div class="choiceWrapper">
+                            <input type="radio" id="questionFourChoiceD"
+                            name="questionFour" value="">
+                            <label for="questionFourChoiceD">String, Number, Undefined, Boolean, Object, Null, and Symbol</label>
+                        </div>
+                    </div>      
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </main>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="js/script.js"></script>
+    </body>
 </html>

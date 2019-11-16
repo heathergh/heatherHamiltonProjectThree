@@ -1,0 +1,11 @@
+@import 'snippets';
+@import 'colour_palette';
+
+.incorrectAnswer,
+.error {
+    background: $incorrectAnswer;
+}
+
+.correctAnswer {
+    background: $correctAnswer;
+}
