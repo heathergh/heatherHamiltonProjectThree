@@ -4,137 +4,138 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
         <title>Web Development Quiz</title>
     </head>
     <body>
         <main>
-            <h1>Web Development Quiz</h1>
+            <h1 class="">Web Development Quiz</h1>
             <section class="quizWrapper">
-                <form>
-                    <p>Question 1: What are the units of measurement used to size fonts?</p>
-                    <div>
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionOneChoiceA"
+                <form class="">
+                    <div class="questionOneWrapper">
+                        <p class="questionOne">Question 1: What are the units of measurement used to size fonts?</p>
+                        <div class="questionOneChoiceA wrapper">
+                            <input class="" type="radio" id="questionOneChoiceA"
                             name="questionOne" value="a">
                             <label for="questionOneChoiceA">pixels, percentage, em, rem, and vh</label>
                         </div>
-
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionOneChoiceB"
+                        <div class="questionOneChoiceB wrapper">
+                            <input class="" type="radio" id="questionOneChoiceB"
                             name="questionOne" value="b">
                             <label for="questionOneChoiceB">pixels, percentage, and rem</label>
                         </div>
-
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionOneChoiceC"
+                        <div class="questionOneChoiceC wrapper">
+                            <input class="" type="radio" id="questionOneChoiceC"
                             name="questionOne" value="c">
                             <label for="questionOneChoiceC">pixels and percentage</label>
                         </div>
-
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionOneChoiceD"
+                        <div class="questionOneChoiceD wrapper">
+                            <input class="" type="radio" id="questionOneChoiceD"
                             name="questionOne" value="d">
                             <label for="questionOneChoiceD">pixels, percentage, em, and rem</label>
                         </div>
                     </div>
 
-                    <p>Question 2: What position value do all HTML elements have by default?</p>
-                    <div>
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionTwoChoiceA"
+                    <div class="questionTwoWrapper">
+                        <p class="questionTwo">Question 2: What position value do all HTML elements have by default?</p>
+                        <div class="questionTwoChoiceA wrapper">
+                            <input class="" type="radio" id="questionTwoChoiceA"
                             name="questionTwo" value="">
                             <label for="questionTwoChoiceA">absolute</label>
                         </div>
-
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionTwoChoiceB"
+                        <div class="questionTwoChoiceB wrapper">
+                            <input class="" type="radio" id="questionTwoChoiceB"
                             name="questionTwo" value="">
                             <label for="questionTwoChoiceB">fixed</label>
                         </div>
-
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionTwoChoiceC"
+                        <div class="questionTwoChoiceC wrapper">
+                            <input class="" type="radio" id="questionTwoChoiceC"
                             name="questionTwo" value="">
                             <label for="questionTwoChoiceC">static</label>
                         </div>
-
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionTwoChoiceD"
+                        <div class="questionTwoChoiceD wrapper">
+                            <input class="" type="radio" id="questionTwoChoiceD"
                             name="questionTwo" value="">
                             <label for="questionTwoChoiceD">relative</label>
                         </div>
                     </div>
                     
-                    <p>Question 3:
-                        Given the code below, what would print to your console if you typed <code>console.log(animalSound);</code>?
-                        <pre>
-                            const animal = {
-                                size: 'small',
-                                colour: 'black',
-                                type: 'cat',
-                                sound: 'meow'
-                                makeSound: () => {
-                                    return `cat says ${this.sound}`;
-                                }
-                            };
+                    <div class="questionThreeWrapper">
+                        <p class="questionThree">Question 3: Given the code below, what would print to your console if you typed <code>console.log(animalSound);</code>?</p>
+                        <div>
+                            <pre>
+                                const animal = {
+                                    size: 'small',
+                                    colour: 'black',
+                                    type: 'cat',
+                                    sound: 'meow'
+                                    makeSound: () => {
+                                        return `cat says ${this.sound}`;
+                                    }
+                                };
+    
+                                const animalSound = animal.makeSound();
+                            </pre>
+                        </div>
 
-                            const animalSound = animal.makeSound();
-                        </pre>
-                    </p>
-                    <div>
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionThreeChoiceA"
+                        <div class="questionThreeChoiceA wrapper">
+                            <input class="" type="radio" id="questionThreeChoiceA"
                             name="questionThree" value="">
                             <label for="">"cat says meow"</label>
                         </div>
 
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionThreeChoiceB"
+                        <div class="questionThreeChoiceB wrapper">
+                            <input class="" type="radio" id="questionThreeChoiceB"
                             name="questionThree" value="">
                             <label for="">an error</label>
                         </div>
 
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionThreeChoiceC"
+                        <div class="questionThreeChoiceC wrapper">
+                            <input class="" type="radio" id="questionThreeChoiceC"
                             name="questionThree" value="">
                             <label for="">undefined</label>
                         </div>
 
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionThreeChoiceD"
+                        <div class="questionThreeChoiceD wrapper">
+                            <input class="" type="radio" id="questionThreeChoiceD"
                             name="questionThree" value="">
                             <label for="">"cat says undefined"</label>
                         </div>
                     </div>
                     
-                    <p>Question 4: What primitive data types are immutable?</p>
-                    <div>
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionFourChoiceA"
+                    <div class="questionFourWrapper">
+                        <p class="questionFour">Question 4: What primitive data types are immutable?</p>
+                        <div class="questionFourChoiceA wrapper">
+                            <input class="" type="radio" id="questionFourChoiceA"
                             name="questionFour" value="">
                             <label for="uestionFourChoiceA">String, Number, Undefined, BigInt, Boolean, Null, and Symbol</label>
                         </div>
 
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionFourChoiceB"
+                        <div class="questionFourChoiceB wrapper">
+                            <input class="" type="radio" id="questionFourChoiceB"
                             name="questionFour" value="">
                             <label for="questionFourChoiceB">String, Number, Undefined, BigInt, Boolean, Object, Null, and Symbol</label>
                         </div>
 
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionFourChoiceC"
+                        <div class="questionFourChoiceC wrapper">
+                            <input class="" type="radio" id="questionFourChoiceC"
                             name="questionFour" value="">
                             <label for="questionFourChoiceC">Number, Undefined, Boolean, BigInt, and Null</label>
                         </div>
 
-                        <div class="choiceWrapper">
-                            <input type="radio" id="questionFourChoiceD"
+                        <div class="questionFourChoiceD wrapper">
+                            <input class="" type="radio" id="questionFourChoiceD"
                             name="questionFour" value="">
                             <label for="questionFourChoiceD">String, Number, Undefined, Boolean, Object, Null, and Symbol</label>
                         </div>
-                    </div>      
-                    
-                    <button type="submit">Submit</button>
+                    </div>
+
+                    <button class="ui button" type="submit">Submit</button>
+
                 </form>
             </section>
         </main>

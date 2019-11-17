@@ -1,11 +1,70 @@
 @import 'snippets';
-@import 'colour_palette';
+@import 'colourPalette';
+@import 'mixins';
+@import 'global';
 
-.incorrectAnswer,
-.error {
-    background: $incorrectAnswer;
-}
+@include mq-mobile {
+    div {
+        border-radius: 5px;
+        margin: 15px 0;
+        padding: 15px 15px;
+    }
 
-.correctAnswer {
-    background: $correctAnswer;
+    label {
+        margin-left: 10px;
+    }
+
+    button {
+        color: $buttonText;
+        font-weight: $boldFontWeight;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 25px;
+        transition: 100ms ease, color 100ms ease, box-shadow 100ms ease, background-color 100ms ease, -webkit-box-shadow 100ms ease;
+        &:hover {
+            background: $buttonHover;
+            box-shadow: 0 0 0 1px transparent inset, 0 0 0 0, $boxShadow inset;
+            -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0, $boxShadow inset;
+        }
+    }
+
+    pre {
+        border-radius: 3px;
+        padding: 16px;
+        overflow: auto;
+    }
+
+    .incorrectAnswer {
+        background: $incorrectAnswer;
+    }
+
+    .correctAnswer {
+        background: $correctAnswer;
+        box-shadow: 0 0 0 1px $correctAnswerBoxShadow inset, 0 0 0 0 transparent;
+        background: $correctAnswerBackground;
+        label {
+            color: $correctAnswerColor;
+        }
+    }
+
+    .questionOneWrapper,
+    .questionTwoWrapper,
+    .questionThreeWrapper,
+    .questionFourWrapper {
+        box-shadow: 0 1px 2px 0 $boxShadow;
+        border-radius: 5px;
+        border: 1px solid $boxShadow;
+        -webkit-box-shadow: 0 1px 2px 0 $boxShadow;
+    }
+
+    .error, .incorrectAnswer {
+        box-shadow: 0 0 0 1px $incorrectAnswerBoxShadow inset,0 0 0 0 transparent;
+        background: $errorMessageBackground;
+        padding: 15px 25px;
+        transition: opacity 100ms ease, color 100ms ease, background-color 100ms ease, box-shadow 100ms ease, -webkit-box-shadow 100ms ease;
+        border-radius: 5px;
+        label {
+            color: $errorMessageColor;
+        }
+    }
 }

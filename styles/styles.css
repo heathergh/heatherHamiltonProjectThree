@@ -184,11 +184,76 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box;
 }
 
-.incorrectAnswer,
-.error {
-  background: #ED2150;
+@media (min-width: 320px) {
+  * {
+    font-family: "Lato", sans-serif;
+  }
+  h1 {
+    font-weight: 700;
+    text-align: center;
+  }
+  p {
+    font-weight: 400;
+  }
 }
 
-.correctAnswer {
-  background: #13AF5F;
+@media (min-width: 320px) {
+  div {
+    border-radius: 5px;
+    margin: 15px 0;
+    padding: 15px 15px;
+  }
+  label {
+    margin-left: 10px;
+  }
+  button {
+    color: #F6F0F2;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    transition: 100ms ease, color 100ms ease, box-shadow 100ms ease, background-color 100ms ease, -webkit-box-shadow 100ms ease;
+  }
+  button:hover {
+    background: #006087;
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0, rgba(34, 36, 38, 0.15) inset;
+    -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0, rgba(34, 36, 38, 0.15) inset;
+  }
+  pre {
+    border-radius: 3px;
+    padding: 16px;
+    overflow: auto;
+  }
+  .incorrectAnswer {
+    background: #ED2150;
+  }
+  .correctAnswer {
+    background: #13AF5F;
+    -webkit-box-shadow: 0 0 0 1px #A3C293 inset, 0 0 0 0 transparent;
+            box-shadow: 0 0 0 1px #A3C293 inset, 0 0 0 0 transparent;
+    background: #FCFFF5;
+  }
+  .correctAnswer label {
+    color: #2C662D;
+  }
+  .questionOneWrapper,
+  .questionTwoWrapper,
+  .questionThreeWrapper,
+  .questionFourWrapper {
+    box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+    border-radius: 5px;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  }
+  .error, .incorrectAnswer {
+    -webkit-box-shadow: 0 0 0 1px #E0B4B4 inset, 0 0 0 0 transparent;
+            box-shadow: 0 0 0 1px #E0B4B4 inset, 0 0 0 0 transparent;
+    background: #FFF6F6;
+    padding: 15px 25px;
+    transition: opacity 100ms ease, color 100ms ease, background-color 100ms ease, box-shadow 100ms ease, -webkit-box-shadow 100ms ease;
+    border-radius: 5px;
+  }
+  .error label, .incorrectAnswer label {
+    color: #9F3A38;
+  }
 }
