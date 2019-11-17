@@ -16,11 +16,12 @@
 
     button {
         color: $buttonText;
+        background-color: $buttonBackground;
         font-weight: $boldFontWeight;
         border: none;
         border-radius: 5px;
         padding: 12px 25px;
-        transition: 100ms ease, color 100ms ease, box-shadow 100ms ease, background-color 100ms ease, -webkit-box-shadow 100ms ease;
+        transition: 200ms ease, color 200ms ease, box-shadow 200ms ease, background-color 200ms ease, -webkit-box-shadow 200ms ease;
         &:hover {
             background: $buttonHover;
             box-shadow: 0 0 0 1px transparent inset, 0 0 0 0, $boxShadow inset;

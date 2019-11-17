@@ -208,11 +208,12 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   }
   button {
     color: #F6F0F2;
+    background-color: #1D70A2;
     font-weight: 700;
     border: none;
     border-radius: 5px;
     padding: 12px 25px;
-    transition: 100ms ease, color 100ms ease, box-shadow 100ms ease, background-color 100ms ease, -webkit-box-shadow 100ms ease;
+    transition: 200ms ease, color 200ms ease, box-shadow 200ms ease, background-color 200ms ease, -webkit-box-shadow 200ms ease;
   }
   button:hover {
     background: #006087;

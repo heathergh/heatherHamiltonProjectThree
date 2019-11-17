@@ -8,57 +8,74 @@ const webDevQuiz = {};
 
 webDevQuiz.score = 0;
 
-webDevQuiz.scoreAnswer = (questionNumber, correctAnswer) => {
+webDevQuiz.compareAnswers = (questionNumber, correctAnswer) => {
     const $userAnswer = $(`input[name=${questionNumber}]:checked`);
     const $userAnswerDivWrapper = $(`input[name=${questionNumber}]:checked`).parent('div');
     
     if ($userAnswer.attr('value') !== correctAnswer) {
         $userAnswerDivWrapper.addClass('incorrectAnswer');
-        webDevQuiz.highlightCorrectAnswer(questionNumber, correctAnswer);
-    } else {
+        webDevQuiz.selectCorrectAnswer(questionNumber, correctAnswer);
+    }
+
+    if ($userAnswer.attr('value') === correctAnswer) {
         $userAnswerDivWrapper.removeClass('incorrectAnswer');
-        webDevQuiz.highlightCorrectAnswer(questionNumber, correctAnswer);
+        webDevQuiz.selectCorrectAnswer(questionNumber, correctAnswer);
+        webDevQuiz.score = webDevQuiz.score + 1;
     }
 };
 
-webDevQuiz.highlightCorrectAnswer = (questionNumber, correctAnswer) => {
+webDevQuiz.selectCorrectAnswer = (questionNumber, correctAnswer) => {
     $(`div.${questionNumber}Choice${correctAnswer.toUpperCase()}`).addClass('correctAnswer');
 };
 
-// find the input value that's checked, if no value is checked, 
-webDevQuiz.validateAndCheckAnswer = (questionNumber, correctAnswer, numQuestions) => {
-    if ($(`div[class*=Wrapper]`).find('input:checked').length === 0) {   
-        console.log($(`input[name=${questionNumber}]:checked`).length);   
-        webDevQuiz.insertErrorMessage(questionNumber);    
-    };
-
-    if ($(`div[class*=Wrapper]`).find('input:checked').length === numQuestions) {   
-        webDevQuiz.scoreAnswer(questionNumber, correctAnswer);
-
-        console.log($(`input[name=${questionNumber}]:checked`).length);   
-    };
+webDevQuiz.validateUserAnswer = (questionNumber, correctAnswer, numQuestions) => {
+    const $questionAnswerLength = $(`div[class*=Wrapper]`).find('input:checked').length;
+    const $userAnswer = $(`input[name=${questionNumber}]:checked`);
+    const $errorMessage = $(`p.${questionNumber} + p.error`);
     
-    if ($(`p.${questionNumber} + p.error`) && $(`input[name=${questionNumber}]:checked`).val() !== undefined) {
-        $(`p.${questionNumber} + p.error`).remove();
-        // webDevQuiz.scoreAnswer(questionNumber, correctAnswer);
-        webDevQuiz.focusAndScrollToFirstErrorMessage();
+    if ($questionAnswerLength === 0) {
+        if ($errorMessage.length) {
+            webDevQuiz.focusAndScrollToFirstErrorMessage();
+        } else {
+            webDevQuiz.insertErrorMessage(questionNumber);
+            webDevQuiz.focusAndScrollToFirstErrorMessage();
+        }
+    }
+
+    if ($questionAnswerLength < numQuestions && $questionAnswerLength > 0) {
+        if ($userAnswer.length === 0 && $errorMessage.length === 0) {
+            webDevQuiz.insertErrorMessage(questionNumber);
+            webDevQuiz.focusAndScrollToFirstErrorMessage();
+        }
+        
+        if ($userAnswer.length && $errorMessage.length) {
+            webDevQuiz.removeErrorMessage(questionNumber);
+            webDevQuiz.focusAndScrollToFirstErrorMessage();
+        }
+
+        if ($errorMessage.length) {
+            webDevQuiz.focusAndScrollToFirstErrorMessage();
+        }
+    }
+    
+    if ($errorMessage.length > 0 && $questionAnswerLength === numQuestions) {
+        webDevQuiz.removeErrorMessage(questionNumber);
+        webDevQuiz.compareAnswers(questionNumber, correctAnswer);  
+    };
+
+    if ($questionAnswerLength === numQuestions) {
+        webDevQuiz.compareAnswers(questionNumber, correctAnswer);  
     };
 };
 
-// prepend the error message and move focus to that div
-webDevQuiz.insertErrorMessage =  questionNumber => {
+webDevQuiz.insertErrorMessage = questionNumber => {
     const $errorMessage = "<p class=\"error\" role=\"alert\" tabindex=\"0\">You must select an answer</p>";
 
-    if ($(`p.${questionNumber} + p.error`).length && $(`input[name=${questionNumber}]:checked`).val() !== undefined) {
-        webDevQuiz.removeErrorMessage(questionNumber);
-        webDevQuiz.focusAndScrollToFirstErrorMessage();
-    }
-    if ($(`p.${questionNumber} + p.error`).length === 0)  {
-        // insert error message after question
-        $(`p.${questionNumber}`).after($errorMessage);
-        // scroll to first error message and add focus
-        webDevQuiz.focusAndScrollToFirstErrorMessage();
-    }
+    $(`p.${questionNumber}`).after($errorMessage);
+};
+
+webDevQuiz.removeErrorMessage = questionNumber => {
+    $(`p.${questionNumber} + p.error`).remove();
 };
 
 webDevQuiz.focusAndScrollToFirstErrorMessage = () => {
@@ -73,39 +90,24 @@ webDevQuiz.focusAndScrollToFirstErrorMessage = () => {
     }
 };
 
-webDevQuiz.removeErrorMessage = questionNumber => {
-    $(`p.${questionNumber} + p.error`).remove();
-};
-
-webDevQuiz.displayResults = (questionNumber, correctAnswer) => {
+webDevQuiz.displayResults = (questionNumber, correctAnswer, numQuestions) => {
     $("button[type='submit']").on('click submit', (event) => {
         event.preventDefault();
 
-        webDevQuiz.validateAndCheckAnswer(questionNumber, correctAnswer, 4);
+        webDevQuiz.validateUserAnswer(questionNumber, correctAnswer, numQuestions);
     });
 };
 
 webDevQuiz.init = () => {
-    webDevQuiz.displayResults('questionOne', 'd');
-    webDevQuiz.displayResults('questionTwo', 'c');
-    webDevQuiz.displayResults('questionThree', 'b');
-    webDevQuiz.displayResults('questionFour', 'a');
+    webDevQuiz.displayResults('questionOne', 'd', 4);
+    webDevQuiz.displayResults('questionTwo', 'c', 4);
+    webDevQuiz.displayResults('questionThree', 'b', 4);
+    webDevQuiz.displayResults('questionFour', 'a', 4);
 };
 
 $(document).ready(() => {
     webDevQuiz.init();
 });
-
-// webDevQuiz.displayResults();
-// for each div with the class of question[i]
-
-
-
-
-
-
-// if correct, increase user score variable by 1, change background to green
-// if not, change background to red, correct answer background green
 
 
 // Stretch Goals:
