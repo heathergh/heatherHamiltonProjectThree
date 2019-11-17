@@ -11,24 +11,29 @@ webDevQuiz.score = 0;
 webDevQuiz.scoreAnswer = (questionNumber, correctAnswer) => {
     if ($(`input[name=${questionNumber}]:checked`).attr('id') !== correctAnswer) {
         $(`input[name=${questionNumber}]:checked`).addClass('incorrectAnswer');
-        $(`#${questionNumber}Choice${correctAnswer.toUpperCase()}`).addClass('correctAnswer');
-    } else {
-        $(`#${questionNumber}Choice${correctAnswer.toUpperCase()}`).addClass('correctAnswer');
+        webDevQuiz.highlightCorrectAnswer(questionNumber, correctAnswer);
     }
+    if ($(`input[name=${questionNumber}]:checked`).attr('id') === correctAnswer) {
+        $(`input[name=${questionNumber}]:checked`).toggleClass('incorrectAnswer');
+        webDevQuiz.highlightCorrectAnswer(questionNumber, correctAnswer);
+    }
+};
+
+webDevQuiz.highlightCorrectAnswer = (questionNumber, correctAnswer) => {
+    $(`#${questionNumber}Choice${correctAnswer.toUpperCase()}`).addClass('correctAnswer');
 };
 
 // find the input value that's checked, if no value is checked, 
 webDevQuiz.validateAndCheckAnswer = (questionNumber, correctAnswer) => {
-    if (($(`input[name=${questionNumber}]:checked`).val() === undefined)) {        
+    if ($(`input[name=${questionNumber}]:checked`).val() === undefined) {        
         webDevQuiz.addErrorMessage(questionNumber);    
-    } else if ($(`p.${questionNumber} + p.error`).length > 0) {
-        $(`p.${questionNumber} + p.error`).remove();
-        webDevQuiz.focusAndscrollToFirstErrorMessage();
-        webDevQuiz.scoreAnswer(questionNumber, correctAnswer);
-    } else {
-        webDevQuiz.scoreAnswer(questionNumber, correctAnswer);
+    };
 
-    }
+    if ($(`p.${questionNumber} + p.error`) && $(`input[name=${questionNumber}]:checked`).val() !== undefined) {
+        $(`p.${questionNumber} + p.error`).remove();
+        webDevQuiz.scoreAnswer(questionNumber, correctAnswer);
+        webDevQuiz.focusAndScrollToFirstErrorMessage();
+    };
 };
 
 // prepend the error message and move focus to that div
@@ -37,17 +42,17 @@ webDevQuiz.addErrorMessage =  questionNumber => {
 
     if ($(`p.${questionNumber} + p.error`).length > 0 && $(`input[name=${questionNumber}]:checked`).val() !== undefined) {
         webDevQuiz.removeErrorMessage(questionNumber);
-        webDevQuiz.focusAndscrollToFirstErrorMessage();
+        webDevQuiz.focusAndScrollToFirstErrorMessage();
     }
     if ($(`p.${questionNumber} + p.error`).length === 0)  {
         // insert error message after question
         $(`p.${questionNumber}`).after($errorMessage);
         // scroll to first error message and add focus
-        webDevQuiz.focusAndscrollToFirstErrorMessage(questionNumber);
+        webDevQuiz.focusAndScrollToFirstErrorMessage();
     }
 };
 
-webDevQuiz.focusAndscrollToFirstErrorMessage = () => {
+webDevQuiz.focusAndScrollToFirstErrorMessage = () => {
     const $firstErrorMessage = $('.error').first();
     $('html, body').stop().animate({
         scrollTop: ($firstErrorMessage.offset().top - 20)
