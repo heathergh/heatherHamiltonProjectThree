@@ -26,20 +26,27 @@ webDevQuiz.highlightCorrectAnswer = (questionNumber, correctAnswer) => {
 };
 
 // find the input value that's checked, if no value is checked, 
-webDevQuiz.validateAndCheckAnswer = (questionNumber, correctAnswer) => {
-    if ($(`input[name=${questionNumber}]:checked`).val() === undefined) {        
-        webDevQuiz.addErrorMessage(questionNumber);    
+webDevQuiz.validateAndCheckAnswer = (questionNumber, correctAnswer, numQuestions) => {
+    if ($(`div[class*=Wrapper]`).find('input:checked').length === 0) {   
+        console.log($(`input[name=${questionNumber}]:checked`).length);   
+        webDevQuiz.insertErrorMessage(questionNumber);    
+    };
+
+    if ($(`div[class*=Wrapper]`).find('input:checked').length === numQuestions) {   
+        webDevQuiz.scoreAnswer(questionNumber, correctAnswer);
+
+        console.log($(`input[name=${questionNumber}]:checked`).length);   
     };
     
     if ($(`p.${questionNumber} + p.error`) && $(`input[name=${questionNumber}]:checked`).val() !== undefined) {
         $(`p.${questionNumber} + p.error`).remove();
-        webDevQuiz.scoreAnswer(questionNumber, correctAnswer);
+        // webDevQuiz.scoreAnswer(questionNumber, correctAnswer);
         webDevQuiz.focusAndScrollToFirstErrorMessage();
     };
 };
 
 // prepend the error message and move focus to that div
-webDevQuiz.addErrorMessage =  questionNumber => {
+webDevQuiz.insertErrorMessage =  questionNumber => {
     const $errorMessage = "<p class=\"error\" role=\"alert\" tabindex=\"0\">You must select an answer</p>";
 
     if ($(`p.${questionNumber} + p.error`).length && $(`input[name=${questionNumber}]:checked`).val() !== undefined) {
@@ -56,6 +63,7 @@ webDevQuiz.addErrorMessage =  questionNumber => {
 
 webDevQuiz.focusAndScrollToFirstErrorMessage = () => {
     const $firstErrorMessage = $('.error:visible').first();
+    
     if ($('.error').length) {
         $('html, body').stop().animate({
             scrollTop: ($firstErrorMessage.offset().top - 20)
@@ -73,7 +81,7 @@ webDevQuiz.displayResults = (questionNumber, correctAnswer) => {
     $("button[type='submit']").on('click submit', (event) => {
         event.preventDefault();
 
-        webDevQuiz.validateAndCheckAnswer(questionNumber, correctAnswer);
+        webDevQuiz.validateAndCheckAnswer(questionNumber, correctAnswer, 4);
     });
 };
 
