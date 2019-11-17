@@ -9,18 +9,20 @@ const webDevQuiz = {};
 webDevQuiz.score = 0;
 
 webDevQuiz.scoreAnswer = (questionNumber, correctAnswer) => {
-    if ($(`input[name=${questionNumber}]:checked`).attr('id') !== correctAnswer) {
-        $(`input[name=${questionNumber}]:checked`).addClass('incorrectAnswer');
+    const $userAnswer = $(`input[name=${questionNumber}]:checked`);
+    const $userAnswerDivWrapper = $(`input[name=${questionNumber}]:checked`).parent('div');
+    
+    if ($userAnswer.attr('value') !== correctAnswer) {
+        $userAnswerDivWrapper.addClass('incorrectAnswer');
         webDevQuiz.highlightCorrectAnswer(questionNumber, correctAnswer);
-    }
-    if ($(`input[name=${questionNumber}]:checked`).attr('id') === correctAnswer) {
-        $(`input[name=${questionNumber}]:checked`).toggleClass('incorrectAnswer');
+    } else {
+        $userAnswerDivWrapper.removeClass('incorrectAnswer');
         webDevQuiz.highlightCorrectAnswer(questionNumber, correctAnswer);
     }
 };
 
 webDevQuiz.highlightCorrectAnswer = (questionNumber, correctAnswer) => {
-    $(`#${questionNumber}Choice${correctAnswer.toUpperCase()}`).addClass('correctAnswer');
+    $(`div.${questionNumber}Choice${correctAnswer.toUpperCase()}`).addClass('correctAnswer');
 };
 
 // find the input value that's checked, if no value is checked, 
@@ -28,7 +30,7 @@ webDevQuiz.validateAndCheckAnswer = (questionNumber, correctAnswer) => {
     if ($(`input[name=${questionNumber}]:checked`).val() === undefined) {        
         webDevQuiz.addErrorMessage(questionNumber);    
     };
-
+    
     if ($(`p.${questionNumber} + p.error`) && $(`input[name=${questionNumber}]:checked`).val() !== undefined) {
         $(`p.${questionNumber} + p.error`).remove();
         webDevQuiz.scoreAnswer(questionNumber, correctAnswer);
@@ -40,7 +42,7 @@ webDevQuiz.validateAndCheckAnswer = (questionNumber, correctAnswer) => {
 webDevQuiz.addErrorMessage =  questionNumber => {
     const $errorMessage = "<p class=\"error\" role=\"alert\" tabindex=\"0\">You must select an answer</p>";
 
-    if ($(`p.${questionNumber} + p.error`).length > 0 && $(`input[name=${questionNumber}]:checked`).val() !== undefined) {
+    if ($(`p.${questionNumber} + p.error`).length && $(`input[name=${questionNumber}]:checked`).val() !== undefined) {
         webDevQuiz.removeErrorMessage(questionNumber);
         webDevQuiz.focusAndScrollToFirstErrorMessage();
     }
@@ -53,12 +55,14 @@ webDevQuiz.addErrorMessage =  questionNumber => {
 };
 
 webDevQuiz.focusAndScrollToFirstErrorMessage = () => {
-    const $firstErrorMessage = $('.error').first();
-    $('html, body').stop().animate({
-        scrollTop: ($firstErrorMessage.offset().top - 20)
-    }, 400, () => {
-        $firstErrorMessage.focus();
-    });
+    const $firstErrorMessage = $('.error:visible').first();
+    if ($('.error').length) {
+        $('html, body').stop().animate({
+            scrollTop: ($firstErrorMessage.offset().top - 20)
+        }, 400, () => {
+            $firstErrorMessage.focus();
+        });
+    }
 };
 
 webDevQuiz.removeErrorMessage = questionNumber => {
