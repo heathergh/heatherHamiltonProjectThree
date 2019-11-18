@@ -1,12 +1,23 @@
-$correctAnswer: #13AF5F;
-$correctAnswerBoxShadow: #A3C293;
-$correctAnswerBackground: #FCFFF5;
+$bodyBackground: #EFF2F7;
+$divBackground: #F9F9F9;
+$fontColor: #393E41;
+$codeSnippetBackground: #E1E9F7;
+$userScoreBackground: #BDD5EA;
+
+$correctAnswerBoxShadow: #2C662D;
+$correctAnswerBackground: #A7CAB1;
 $correctAnswerColor:#2C662D;
-$incorrectAnswer: #ED2150;
-$incorrectAnswerBoxShadow: #E0B4B4;
+
+$incorrectAnswerBackground: #D1B3C4;
+$incorrectAnswerBoxShadow: #AA92A0;
+
 $errorMessageBackground: #FFF6F6;
-$errorMessageColor: #9F3A38;
-$boxShadow: rgba(34, 36, 38, 0.15);
-$buttonBackground: #1D70A2;
-$buttonHover: #006087;
-$buttonText: #F6F0F2;
+$errorMessageColor: rgb(159, 58, 56);
+$boxShadow: rgba(155, 155, 155, 0.15);
+
+$buttonText: #2A1724;
+$submitButtonBackground: #A7CAB1;
+$submitButtonHover: #88B7B5;
+
+$resetButtonBackground: #D1B3C4;
+$resetButtonHover: #B392AC;

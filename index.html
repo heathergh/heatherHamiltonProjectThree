@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|family=Limelight|Merriweather&display=swap" > 
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -13,29 +13,25 @@
     </head>
     <body>
         <main>
-            <h1 class="">Web Development Quiz</h1>
+            <h1 class="">Web Development <span class="monoton">Quiz</span></h1>
             <section class="quizWrapper">
-                <form class="">
+                <form>
                     <div class="questionOneWrapper">
                         <p class="questionOne">Question 1: What are the units of measurement used to size fonts?</p>
                         <div class="questionOneChoiceA wrapper">
-                            <input class="" type="radio" id="questionOneChoiceA"
-                            name="questionOne" value="a">
+                            <input type="radio" id="questionOneChoiceA" name="questionOne" value="a">
                             <label for="questionOneChoiceA">pixels, percentage, em, rem, and vh</label>
                         </div>
                         <div class="questionOneChoiceB wrapper">
-                            <input class="" type="radio" id="questionOneChoiceB"
-                            name="questionOne" value="b">
+                            <input type="radio" id="questionOneChoiceB" name="questionOne" value="b">
                             <label for="questionOneChoiceB">pixels, percentage, and rem</label>
                         </div>
                         <div class="questionOneChoiceC wrapper">
-                            <input class="" type="radio" id="questionOneChoiceC"
-                            name="questionOne" value="c">
+                            <input type="radio" id="questionOneChoiceC" name="questionOne" value="c">
                             <label for="questionOneChoiceC">pixels and percentage</label>
                         </div>
                         <div class="questionOneChoiceD wrapper">
-                            <input class="" type="radio" id="questionOneChoiceD"
-                            name="questionOne" value="d">
+                            <input type="radio" id="questionOneChoiceD" name="questionOne" value="d">
                             <label for="questionOneChoiceD">pixels, percentage, em, and rem</label>
                         </div>
                     </div>
@@ -43,66 +39,53 @@
                     <div class="questionTwoWrapper">
                         <p class="questionTwo">Question 2: What position value do all HTML elements have by default?</p>
                         <div class="questionTwoChoiceA wrapper">
-                            <input class="" type="radio" id="questionTwoChoiceA"
-                            name="questionTwo" value="a">
+                            <input type="radio" id="questionTwoChoiceA" name="questionTwo" value="a">
                             <label for="questionTwoChoiceA">absolute</label>
                         </div>
                         <div class="questionTwoChoiceB wrapper">
-                            <input class="" type="radio" id="questionTwoChoiceB"
-                            name="questionTwo" value="b">
+                            <input type="radio" id="questionTwoChoiceB" name="questionTwo" value="b">
                             <label for="questionTwoChoiceB">fixed</label>
                         </div>
                         <div class="questionTwoChoiceC wrapper">
-                            <input class="" type="radio" id="questionTwoChoiceC"
-                            name="questionTwo" value="c">
+                            <input type="radio" id="questionTwoChoiceC" name="questionTwo" value="c">
                             <label for="questionTwoChoiceC">static</label>
                         </div>
                         <div class="questionTwoChoiceD wrapper">
-                            <input class="" type="radio" id="questionTwoChoiceD"
-                            name="questionTwo" value="d">
+                            <input type="radio" id="questionTwoChoiceD" name="questionTwo" value="d">
                             <label for="questionTwoChoiceD">relative</label>
                         </div>
                     </div>
                     
                     <div class="questionThreeWrapper">
-                        <p class="questionThree">Question 3: Given the code below, what would print to your console if you typed <code>console.log(animalSound);</code>?</p>
-                        <div>
+                        <p class="questionThree">Question 3: Given the code below, what would print to your console if you logged <code>`cat says ${cat.makeSound}`</code>?</p>
+                        <div class="codeSnippet">
                             <pre>
-                                const animal = {
-                                    size: 'small',
-                                    colour: 'black',
-                                    type: 'cat',
-                                    sound: 'meow'
-                                    makeSound: () => {
-                                        return `cat says ${this.sound}`;
-                                    }
-                                };
-    
-                                const animalSound = animal.makeSound();
+                              const cat = {
+                                  sound: 'meow'
+                                  makeSound: () => {
+                                    return `${this.sound}`;
+                                  }
+                              };
                             </pre>
                         </div>
 
                         <div class="questionThreeChoiceA wrapper">
-                            <input class="" type="radio" id="questionThreeChoiceA"
-                            name="questionThree" value="a">
+                            <input type="radio" id="questionThreeChoiceA" name="questionThree" value="a">
                             <label for="">"cat says meow"</label>
                         </div>
 
                         <div class="questionThreeChoiceB wrapper">
-                            <input class="" type="radio" id="questionThreeChoiceB"
-                            name="questionThree" value="b">
+                            <input type="radio" id="questionThreeChoiceB" name="questionThree" value="b">
                             <label for="">an error</label>
                         </div>
 
                         <div class="questionThreeChoiceC wrapper">
-                            <input class="" type="radio" id="questionThreeChoiceC"
-                            name="questionThree" value="c">
+                            <input type="radio" id="questionThreeChoiceC" name="questionThree" value="c">
                             <label for="">undefined</label>
                         </div>
 
                         <div class="questionThreeChoiceD wrapper">
-                            <input class="" type="radio" id="questionThreeChoiceD"
-                            name="questionThree" value="c">
+                            <input type="radio" id="questionThreeChoiceD" name="questionThree" value="c">
                             <label for="">"cat says undefined"</label>
                         </div>
                     </div>
@@ -110,31 +93,32 @@
                     <div class="questionFourWrapper">
                         <p class="questionFour">Question 4: What primitive data types are immutable?</p>
                         <div class="questionFourChoiceA wrapper">
-                            <input class="" type="radio" id="questionFourChoiceA"
-                            name="questionFour" value="a">
+                            <input type="radio" id="questionFourChoiceA" name="questionFour" value="a">
                             <label for="uestionFourChoiceA">String, Number, Undefined, BigInt, Boolean, Null, and Symbol</label>
                         </div>
 
                         <div class="questionFourChoiceB wrapper">
-                            <input class="" type="radio" id="questionFourChoiceB"
-                            name="questionFour" value="b">
+                            <input type="radio" id="questionFourChoiceB" name="questionFour" value="b">
                             <label for="questionFourChoiceB">String, Number, Undefined, BigInt, Boolean, Object, Null, and Symbol</label>
                         </div>
 
                         <div class="questionFourChoiceC wrapper">
-                            <input class="" type="radio" id="questionFourChoiceC"
-                            name="questionFour" value="c">
+                            <input type="radio" id="questionFourChoiceC" name="questionFour" value="c">
                             <label for="questionFourChoiceC">Number, Undefined, Boolean, BigInt, and Null</label>
                         </div>
 
                         <div class="questionFourChoiceD wrapper">
-                            <input class="" type="radio" id="questionFourChoiceD"
-                            name="questionFour" value="d">
+                            <input type="radio" id="questionFourChoiceD" name="questionFour" value="d">
                             <label for="questionFourChoiceD">String, Number, Undefined, Boolean, Object, Null, and Symbol</label>
                         </div>
                     </div>
 
-                    <button class="ui button" type="submit">Submit</button>
+                    <div class="userScore hide"></div>
+
+                    <div class="buttonWrapper">
+                        <button class="button" type="submit">Submit</button>
+                        <button class="button" type="reset">Clear Form</button>
+                    </div>
 
                 </form>
             </section>

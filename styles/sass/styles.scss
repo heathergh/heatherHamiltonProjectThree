@@ -1,48 +1,123 @@
 @import 'snippets';
 @import 'colourPalette';
 @import 'mixins';
-@import 'global';
+
+$boldFontWeight: 700;
+$normalFontWeight: 400;
+$latoFont: 'Lato', sans-serif;
+$limelightFont: 'Limelight', cursive;
+$merriweatherFont: 'Merriweather', serif;
 
 @include mq-mobile {
+    html {
+        font-size: 125%;
+    }
+
+    body {
+        background: $bodyBackground;
+    }
+
     div {
         border-radius: 5px;
         margin: 15px 0;
-        padding: 15px 15px;
+        padding: 15px;
+    }
+
+    h1, .userScore {
+        font-family: $limelightFont;
+        font-weight: $boldFontWeight;
+        text-align: center;
+    }
+
+    p {
+        color: $fontColor;
+        font-family: $latoFont;
+        font-weight: $normalFontWeight;
+        &[class*=question] {
+            font-weight: $boldFontWeight;
+        }
+    }
+
+    div {
+        background: $divBackground;
+    }
+
+    button {
+        width: 100%;
     }
 
     label {
+        color: $fontColor;
+        line-height: 1.6rem;
         margin-left: 10px;
     }
 
     button {
         color: $buttonText;
-        background-color: $buttonBackground;
-        font-weight: $boldFontWeight;
+        background-color: $submitButtonBackground;
         border: none;
         border-radius: 5px;
+        font-weight: $boldFontWeight;
         padding: 12px 25px;
-        transition: 200ms ease, color 200ms ease, box-shadow 200ms ease, background-color 200ms ease, -webkit-box-shadow 200ms ease;
-        &:hover {
-            background: $buttonHover;
+        transition: 300ms ease, color 300ms ease, box-shadow 300ms ease, background-color 300ms ease, -webkit-box-shadow 300ms ease;
+        &:hover, &:focus {
             box-shadow: 0 0 0 1px transparent inset, 0 0 0 0, $boxShadow inset;
             -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0, $boxShadow inset;
         }
+        &[type=submit] {
+            background-color: $submitButtonBackground;
+            &:hover {
+                background: $submitButtonHover;
+            }
+        }
+        &[type=reset] {
+            margin-top: 20px;
+            background-color: $resetButtonBackground;
+            &:hover {
+                background: $resetButtonHover;
+            }
+        }
     }
 
-    pre {
-        border-radius: 3px;
-        padding: 16px;
-        overflow: auto;
+    pre, code {
+        font-family: $merriweatherFont;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .quizWrapper {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 1080px;
+    }
+    
+    .codeSnippet {
+        background: $codeSnippetBackground;
+        height: 180px;
+        position: relative;
+        padding: 0;
+        pre {
+            border-radius: 3px;
+            padding: 0;
+            position: absolute;
+            left: -120px;
+            width: 29%;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
     }
 
     .incorrectAnswer {
-        background: $incorrectAnswer;
+        background: $incorrectAnswerBackground;
     }
 
     .correctAnswer {
-        background: $correctAnswer;
         box-shadow: 0 0 0 1px $correctAnswerBoxShadow inset, 0 0 0 0 transparent;
         background: $correctAnswerBackground;
+        transition: opacity 500ms ease, color 500ms ease, background-color 500ms ease, box-shadow 500ms ease, -webkit-box-shadow 500ms ease;
         label {
             color: $correctAnswerColor;
         }
@@ -59,17 +134,73 @@
     }
 
     .error {
+        background: $errorMessageBackground;
         padding: 15px 25px;
+    }
+
+    .incorrectAnswer {
+        background: $incorrectAnswerBackground;
     }
 
     .error, .incorrectAnswer {
         box-shadow: 0 0 0 1px $incorrectAnswerBoxShadow inset, 0 0 0 0 transparent;
-        background: $errorMessageBackground;
-        transition: opacity 100ms ease, color 100ms ease, background-color 100ms ease, box-shadow 100ms ease, -webkit-box-shadow 100ms ease;
+        transition: opacity 500ms ease, color 500ms ease, background-color 500ms ease, box-shadow 500ms ease, -webkit-box-shadow 500ms ease;
         border-radius: 5px;
         label {
             color: $errorMessageColor;
         }
     }
 
+    .userScore {
+        background: $userScoreBackground;
+        transition: opacity 1000ms ease, color 1000ms ease, background-color 1000ms ease, box-shadow 1000ms ease, -webkit-box-shadow 1000ms ease;
+    }
+}
+
+@include mq-tablet {
+    .quizWrapper {
+        width: 80%;
+    }
+
+    div {
+        padding: 30px;
+    }
+
+    .wrapper {
+        margin: 0;
+        padding: 15px;
+    }
+
+    .buttonWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .button {
+            width: 50%;
+        }
+    }
+}
+
+@include mq-desktop {
+    div {
+        padding: 30px 60px;
+    }
+    
+    .quizWrapper {
+        width: 50%;
+    }
+}
+
+@include mq-retina {
+    html {
+        font-size: 150%;
+    }
+    
+    div {
+        padding: 30px 60px;
+    }
+    
+        .codeSnippet {
+            height: 215px;
+        }
 }
