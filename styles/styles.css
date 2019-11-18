@@ -317,6 +317,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
     padding: 15px;
   }
   .buttonWrapper {
+    background: none;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
