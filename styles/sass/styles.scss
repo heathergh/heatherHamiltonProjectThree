@@ -153,6 +153,10 @@ $merriweatherFont: 'Merriweather', serif;
     #huntr-react-container-2 {
         background: $bodyBackground;
     }
+
+    .buttonWrapper {
+        background: none;
+    }
 }
 
 @include mq-tablet {
@@ -170,7 +174,6 @@ $merriweatherFont: 'Merriweather', serif;
     }
 
     .buttonWrapper {
-        background: none;
         display: flex;
         flex-direction: column;
         align-items: center;

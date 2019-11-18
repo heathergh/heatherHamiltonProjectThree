@@ -303,6 +303,9 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   #huntr-react-container-2 {
     background: #EFF2F7;
   }
+  .buttonWrapper {
+    background: none;
+  }
 }
 
 @media (min-width: 768px) {
@@ -317,7 +320,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
     padding: 15px;
   }
   .buttonWrapper {
-    background: none;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
