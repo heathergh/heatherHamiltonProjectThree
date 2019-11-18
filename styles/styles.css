@@ -178,7 +178,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   html {
     font-size: 125%;
   }
-  body {
+  body, #huntr-react-container-2 {
     background: #EFF2F7;
   }
   div {
