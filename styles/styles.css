@@ -178,10 +178,11 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   html {
     font-size: 125%;
   }
-  body, #huntr-react-container-2 {
+  body {
     background: #EFF2F7;
   }
   div {
+    background: #F9F9F9;
     border-radius: 5px;
     margin: 15px 0;
     padding: 15px;
@@ -199,12 +200,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   p[class*=question] {
     font-weight: 700;
   }
-  div {
-    background: #F9F9F9;
-  }
-  button {
-    width: 100%;
-  }
   label {
     color: #393E41;
     line-height: 1.6rem;
@@ -218,6 +213,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
     font-weight: 700;
     padding: 12px 25px;
     transition: 300ms ease, color 300ms ease, box-shadow 300ms ease, background-color 300ms ease, -webkit-box-shadow 300ms ease;
+    width: 100%;
   }
   button:hover, button:focus {
     box-shadow: 0 0 0 1px transparent inset, 0 0 0 0, rgba(155, 155, 155, 0.15) inset;
@@ -303,6 +299,9 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   .userScore {
     background: #BDD5EA;
     transition: opacity 1000ms ease, color 1000ms ease, background-color 1000ms ease, box-shadow 1000ms ease, -webkit-box-shadow 1000ms ease;
+  }
+  #huntr-react-container-2 {
+    background: #EFF2F7;
   }
 }
 

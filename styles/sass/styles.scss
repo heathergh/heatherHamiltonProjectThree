@@ -13,11 +13,12 @@ $merriweatherFont: 'Merriweather', serif;
         font-size: 125%;
     }
 
-    body, #huntr-react-container-2 {
+    body {
         background: $bodyBackground;
     }
 
     div {
+        background: $divBackground;
         border-radius: 5px;
         margin: 15px 0;
         padding: 15px;
@@ -38,14 +39,6 @@ $merriweatherFont: 'Merriweather', serif;
         }
     }
 
-    div {
-        background: $divBackground;
-    }
-
-    button {
-        width: 100%;
-    }
-
     label {
         color: $fontColor;
         line-height: 1.6rem;
@@ -60,6 +53,7 @@ $merriweatherFont: 'Merriweather', serif;
         font-weight: $boldFontWeight;
         padding: 12px 25px;
         transition: 300ms ease, color 300ms ease, box-shadow 300ms ease, background-color 300ms ease, -webkit-box-shadow 300ms ease;
+        width: 100%;
         &:hover, &:focus {
             box-shadow: 0 0 0 1px transparent inset, 0 0 0 0, $boxShadow inset;
             -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0, $boxShadow inset;
@@ -154,6 +148,10 @@ $merriweatherFont: 'Merriweather', serif;
     .userScore {
         background: $userScoreBackground;
         transition: opacity 1000ms ease, color 1000ms ease, background-color 1000ms ease, box-shadow 1000ms ease, -webkit-box-shadow 1000ms ease;
+    }
+
+    #huntr-react-container-2 {
+        background: $bodyBackground;
     }
 }
 
